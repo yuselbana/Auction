@@ -27,7 +27,7 @@ pragma solidity >0.5.0 <0.9.0;
         owner = payable(externallyOwnedAccount);
         auctionState = State.Running;
         startBlock = block.number;
-        //40320 is about the amount of blocks generated in a week, auctions lasts one week. 
+        //40320 is about the amount of blocks generated in a week, auction lasts one week. 
         endBlock = startBlock + 40320; 
         ipfsHash = "";
         bidIncrement = 100;
@@ -82,7 +82,7 @@ pragma solidity >0.5.0 <0.9.0;
     require(auctionState == State.Canceled || block.number > endBlock);
     //Require the address that called finalizeAuction() to be the owner or an address that has placed a bid.
     require(msg.sender == owner || bids[msg.sender] > 0);
-    //Create two type address and type uint. 
+    //Create two local variables type address and type uint. 
     address payable recipient;
     uint value; 
     //Local variables used to set conditions 
